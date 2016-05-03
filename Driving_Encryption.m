@@ -1,22 +1,30 @@
 %Authors: Cordell Andersen and Erica Wiens
-%Sources: --- MATLAB documentation and website; Advanced Hill Cipher paper --- 
+
+%Sources: 
+%Bibhudendra Acharya, Saroj Kumar Panigrahy, Sarat Kumar Patra, Ganapati Panda. 
+%Image Encryption Using Advanced Hill Cipher Algorithm
+%Int. J R.T Eng. Vol. 1, No. 1, 663 - 667, May 2009 
+
+%"MATLAB Speaks SDR." MathWorks – Makers of MATLAB and Simulink.
+%N.p., n.d. Web. Mar. 2016.
+
 %Dates: February 23, 2016 - April 22, 2016
 clear;clc;clf;
 
-%Pictures that are on file for encryption-decryption sequence
+%Pictures that were used for encryption-decryption testing
 %Car_Incription_MK_I.bmp            %DismissSoundSubClass.jpg   
 %Hospitaller.jpg                    %catcryption.jpg  
 %NoLightSubClass.jpg                %ConfrontationSubClass.jpg
-                        %Sullivan.png
+
 %https://www.pexels.com/photo/black-and-white-nature-flowers-close-up-view-57905/
 %All images are from Google Images. All rights belong to their respective
 %owners.
 
 %Imports image
-Im = imread('Sullivan.png');
+Im = imread('catcryption.jpg');
 
 %Creates RGB matrices for the image
-[ImageMat,map] = imread('Sullivan.png');
+[ImageMat,map] = imread('catcryption.jpg');
 ImageMat=im2double(ImageMat);
 
 %Shows the original image
@@ -24,7 +32,7 @@ imshow(ImageMat)
 figure;
 
 %Allows for access to data 
-Data=imfinfo('Sullivan.png');
+Data=imfinfo('catcryption.jpg');
 
 %Generating Key Matrices for R-G-B levels
 RKeyrypt = KeyMatrx1();
@@ -155,6 +163,7 @@ Bdecryption = cell(XSHIFT,YSHIFT);
 BXStart=1;
 BXEnd=4;
 
+%this setup to parse the image into sub-matrices is from Dempsey Rogers
 for i=1:1:XSHIFT
     BYStart=1;
     BYEnd=4;
@@ -206,6 +215,7 @@ Gdecryption = cell(XSHIFT,YSHIFT);
 GXStart=1;
 GXEnd=4;
 
+%this setup to parse the image into sub-matrices is from Dempsey Rogers
 for i=1:1:XSHIFT
     GYStart=1;
     GYEnd=4;
@@ -257,6 +267,7 @@ Rdecryption = cell(XSHIFT,YSHIFT);
 RXStart=1;
 RXEnd=4;
 
+%this setup to parse the image into sub-matrices is from Dempsey Rogers
 for i=1:1:XSHIFT
     RYStart=1;
     RYEnd=4;
